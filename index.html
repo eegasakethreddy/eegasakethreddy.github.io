@@ -5,180 +5,382 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eega Saketh Reddy | Portfolio</title>
     <style>
-        /* --- General Body Styles --- */
+        /* --- Global Styles & Variables --- */
+        :root {
+            --bg-color: #1a202c;
+            --card-color: #2d3748;
+            --primary-text: #e2e8f0;
+            --secondary-text: #a0aec0;
+            --accent-color: #4299e1;
+            --border-color: #4a5568;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
         }
 
-        /* --- Container for Centering Content --- */
         .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 25px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* --- Header Styles --- */
-        header {
-            text-align: center;
-            border-bottom: 2px solid #eeeeee;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+        /* --- Navigation Bar --- */
+        nav {
+            background-color: rgba(45, 55, 72, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
         }
-        header h1 {
+        .nav-links {
+            list-style: none;
             margin: 0;
-            font-size: 2.5em;
-            color: #2c3e50;
+            padding: 0;
+            display: flex;
         }
-        header p {
-            margin-top: 8px;
-            font-size: 1.1em;
-            color: #555;
+        .nav-links li {
+            margin: 0 15px;
         }
-        header a {
-            color: #3498db;
+        .nav-links a {
+            color: var(--primary-text);
             text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            transition: color 0.3s ease;
         }
-        header a:hover {
-            text-decoration: underline;
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+        .menu-icon .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-text);
+            margin: 5px 0;
+            transition: 0.4s;
         }
 
-        /* --- Section Styles --- */
-        section {
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
             margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eeeeee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: var(--primary-text);
+        }
+        .hero .subtitle {
+            font-size: 1.5em;
+            color: var(--accent-color);
+            margin: 10px 0 20px 0;
+        }
+        .hero p {
+            max-width: 600px;
+            font-size: 1.1em;
+            color: var(--secondary-text);
+        }
+        .social-links {
+            margin-top: 25px;
+        }
+        .social-links a {
+            margin: 0 15px;
+            color: var(--primary-text);
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        .social-links svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* --- General Section Styles --- */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
         }
         section:last-of-type {
             border-bottom: none;
-            padding-bottom: 0;
         }
         h2 {
-            font-size: 1.8em;
-            color: #34495e;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-text);
         }
-        
-        /* --- Project Styles --- */
-        article h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: #2c3e50;
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
         }
 
-        /* --- List Styles for Skills & Projects --- */
-        ul {
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .skill-category {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .skill-category h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+        .skill-category p {
+            margin-bottom: 0;
+            color: var(--secondary-text);
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .project-card {
+            background-color: var(--card-color);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .project-card-content {
+            padding: 25px;
+        }
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: var(--accent-color);
+        }
+        .project-card ul {
             list-style-type: none;
-            padding-left: 0;
+            padding: 0;
         }
-        ul li {
-            background-color: #f9f9f9;
-            margin-bottom: 8px;
-            padding: 12px;
-            border-left: 4px solid #3498db;
-            border-radius: 4px;
+        .project-card li {
+            margin-bottom: 10px;
+            color: var(--secondary-text);
+            position: relative;
+            padding-left: 20px;
         }
-        
-        /* --- Bolding for Skills --- */
-        ul li strong {
-            color: #34495e;
+        .project-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
         }
 
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--card-color);
+            border-top: 1px solid var(--border-color);
+        }
+        footer p {
+            margin: 0;
+            color: var(--secondary-text);
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero .subtitle {
+                font-size: 1.2em;
+            }
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            
+            nav {
+                justify-content: flex-end;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                background-color: var(--card-color);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                padding: 15px 0;
+                text-align: center;
+                border-top: 1px solid var(--border-color);
+            }
+            .menu-icon {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <nav>
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <header>
-            <h1>EEGA SAKETH REDDY</h1>
-            <p>
-                <a href="mailto:eegasakethreddy@gmail.com">eegasakethreddy@gmail.com</a> | 
-                9014906854 | 
-                <a href="https://linkedin.com/in/eegasakethreddy" target="_blank">linkedin.com/in/eegasakethreddy</a> | 
-                <a href="https://github.com/eegasakethreddy" target="_blank">github.com/eegasakethreddy</a>
-            </p>
-        </header>
-
-        <section id="summary">
-            <h2>PROFESSIONAL SUMMARY</h2>
-            <p>A recent Computer Science and Engineering graduate, I possess a strong foundation in software development principles and object-oriented programming. My proven problem-solving abilities and hands-on project experience make me eager to contribute technical skills to a dynamic team.</p>
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <img src="profile.jpg" alt="Profile Photo of Eega Saketh Reddy" class="profile-photo">
+                <h1>EEGA SAKETH REDDY</h1>
+                <p class="subtitle">Aspiring Software Developer</p>
+                <p>A recent Computer Science graduate with a strong foundation in software development and a passion for building elegant solutions to complex problems.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/eegasakethreddy" target="_blank" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.62 1.62 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
+                    </a>
+                    <a href="https://github.com/eegasakethreddy" target="_blank" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"></path></svg>
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <section id="education">
-            <h2>EDUCATION</h2>
-            <p>
-                <strong>Malla Reddy Engineering College</strong> - Hyderabad, India<br>
-                Bachelor of Technology<br>
-                Computer Science and Engineering (Cyber Security)<br>
-                CGPA: 7.38
-            </p>
-        </section>
+        <div class="container">
+            <section id="about">
+                <h2>ABOUT ME</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--secondary-text);">I am a Bachelor of Technology graduate from Malla Reddy Engineering College, specializing in Computer Science with a focus on Cyber Security (CGPA: 7.38). I have a strong command of Object-Oriented Programming and practical experience in building web applications. I am actively seeking opportunities where I can apply my technical skills and problem-solving abilities in a dynamic team environment.</p>
+            </section>
 
-        <section id="skills">
-            <h2>TECHNICAL SKILLS</h2>
-            <ul>
-                <li><strong>Programming Languages:</strong> Python</li>
-                <li><strong>Web Technologies:</strong> HTML | CSS | JavaScript</li>
-                <li><strong>Database Technologies:</strong> SQL (MySQL)</li>
-                <li><strong>Developer Tools:</strong> Github | MySQL Workbench</li>
-                <li><strong>Technical Concepts:</strong> Object-Oriented Programming (OOP)</li>
-            </ul>
-        </section>
+            <section id="skills">
+                <h2>TECHNICAL SKILLS</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <p>Python</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web Technologies</h3>
+                        <p>HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Database Technologies</h3>
+                        <p>SQL (MySQL)</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Developer Tools</h3>
+                        <p>GitHub, MySQL Workbench</p>
+                    </div>
+                </div>
+            </section>
 
-        <section id="projects">
-            <h2>PERSONAL PROJECTS</h2>
-            
-            <article>
-                <h3>Word Means | Dictionary Application</h3>
-                <ul>
-                    <li>Engineered a responsive and interactive dictionary web application, utilizing HTML, CSS, and JavaScript, providing users with instant access to over 100,000 word definitions.</li>
-                    <li>Integrated the public DictionaryAPI to dynamically fetch and render comprehensive linguistic data, including phonetic transcriptions, audio pronunciations, and usage examples, across multiple data points.</li>
-                    <li>Designed and implemented a mobile-first, fully responsive UI with Tailwind CSS, ensuring optimal usability and a consistent user experience across all device sizes, leading to a 20% increase in user engagement on mobile devices.</li>
-                    <li>Automated the build and deployment process to GitHub Pages with GitHub Actions, improving development efficiency.</li>
-                </ul>
-            </article>
+            <section id="projects">
+                <h2>PERSONAL PROJECTS</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3>Word Means | Dictionary Application</h3>
+                            <ul>
+                                <li>Engineered a responsive dictionary web app with HTML, CSS, and JavaScript.</li>
+                                <li>Integrated the public DictionaryAPI to dynamically fetch and display linguistic data.</li>
+                                <li>Designed a mobile-first, fully responsive UI using Tailwind CSS for optimal usability.</li>
+                                <li>Automated the build and deployment process to GitHub Pages with GitHub Actions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3>Analog Clock | Dynamic Time-Telling Interface</h3>
+                            <ul>
+                                <li>Developed a real-time analog clock demonstrating core front-end principles.</li>
+                                <li>Implemented precise time-based animations using JavaScript's `setInterval` and `Date` objects.</li>
+                                <li>Manipulated the DOM to apply CSS transforms for smooth, accurate second-by-second updates.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-            <article>
-                <h3>Analog Clock | Dynamic Time-Telling Interface</h3>
-                <ul>
-                    <li>Developed a real-time analog clock using HTML, CSS, and JavaScript, demonstrating core front-end development principles and handling precise time updates 60 times per minute.</li>
-                    <li>Implemented precise time-based animations by leveraging JavaScript's `setInterval` and `Date` objects to calculate the exact rotation for the hour, minute, and second hands, ensuring sub-second accuracy.</li>
-                    <li>Dynamically manipulated the DOM to apply CSS transform properties, ensuring seamless and accurate updates of clock hands every second, improving visual fluidity by 25% compared to static designs.</li>
-                </ul>
-            </article>
+    <footer id="contact">
+        <div class="container">
+            <h2>GET IN TOUCH</h2>
+            <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+            <p><a href="mailto:eegasakethreddy@gmail.com" style="color: var(--accent-color); text-decoration: none;">eegasakethreddy@gmail.com</a></p>
+            <br>
+            <p>&copy; 2025 Eega Saketh Reddy. All rights reserved.</p>
+        </div>
+    </footer>
 
-        </section>
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
 
-        <section id="certifications">
-            <h2>CERTIFICATIONS</h2>
-            <ul>
-                <li>PYTHON (Basic) - HackerRank</li>
-                <li>SQL (Intermediate/Advanced) - HackerRank</li>
-            </ul>
-        </section>
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 
-        <section id="training">
-            <h2>WORKSHOPS & TRAINING</h2>
-            <article>
-                <h3>Deloitte Australia | Technology Job Simulation (via Forage)</h3>
-                <ul>
-                    <li>Engaged in a hands-on technical simulation, applying development and coding skills to solve practical business problems for a simulated client.</li>
-                    <li>Authored a detailed technical proposal for the development of a data-driven dashboard, outlining project scope and requirements for a complex business scenario.</li>
-                </ul>
-            </article>
-        </section>
-
-    </div> </body>
+</body>
 </html>
+
 
 
