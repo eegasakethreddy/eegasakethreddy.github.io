@@ -88,15 +88,17 @@
         }
         .hero {
             text-align: center;
-            padding: 80px 20px;
-            min-height: 90vh;
+            padding: 40px 20px 80px; /* reduced top padding */
+            min-height: 85vh;        /* slightly reduced height */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* moves content upward */
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 60px; /* extra control for top gap */
         }
+
         .hero-content {
             position: relative;
             z-index: 2;
@@ -325,6 +327,7 @@
             <div class="bar"></div>
         </div>
         <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -340,8 +343,8 @@
                 <img src="Gemini_Generated_Image_vh5g9mvh5g9mvh5g.png
 " alt="Profile Photo of Eega Saketh Reddy" class="profile-photo" onerror="this.onerror=null;this.src='https://placehold.co/150x150/2d3748/e2e8f0?text=ESR';">
                 <h1>EEGA SAKETH REDDY</h1>
-                <p class="subtitle">Aspiring Software Developer</p>
-                <p>A recent Computer Science graduate with a strong foundation in software development and a passion for building elegant solutions to complex problems.</p>
+                <p class="subtitle">Building Web Experiences with Code</p>
+                <p>Passionate developer skilled in Python, JavaScript, and modern web technologies. Strong foundation in software engineering with hands-on experience in full-stack development.</p>
                 <div class="social-links">
                     <a href="https://linkedin.com/in/eegasakethreddy" target="_blank" aria-label="LinkedIn">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.62 1.62 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
@@ -356,7 +359,7 @@
         <div class="container">
             <section id="about">
                 <h2>ABOUT ME</h2>
-                <p id="bio-text" style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--secondary-text);">I am a Bachelor of Technology graduate from Malla Reddy Engineering College, specializing in Computer Science with a focus on Cyber Security (CGPA: 7.38). I have a strong command of Object-Oriented Programming and practical experience in building web applications. I am actively seeking opportunities where I can apply my technical skills and problem-solving abilities in a dynamic team environment.</p>
+                <p id="bio-text" style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--secondary-text);">I am a Computer Science graduate with strong skills in Python, JavaScript, and modern web development. I have built full-stack applications using React, FastAPI, and RESTful APIs, focusing on clean UI design, performance, and scalable backend logic. My projects—ranging from weather applications to dictionary platforms—demonstrate my ability to integrate APIs, structure data effectively, and deliver responsive, user-friendly interfaces. I am passionate about creating real-world software solutions and continuously improving my development skills.</p>
             </section>
 
             <section id="skills">
@@ -365,12 +368,12 @@
                     <div class="skill-card">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L12 15.25l5.571-3M3.75 12h16.5" /></svg>
                         <h3>Languages</h3>
-                        <p>Python</p>
+                        <p>Python, JavaScript</p>
                     </div>
                     <div class="skill-card">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
                         <h3>Web Tech</h3>
-                        <p>HTML, CSS, JavaScript</p>
+                        <p>HTML, CSS, React.js</p>
                     </div>
                     <div class="skill-card">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg>
@@ -380,7 +383,7 @@
                     <div class="skill-card">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12m-7.5-3.75v3.75m-3.75-3.75v3.75m-3.75-3.75v3.75m9.75-15l-2.25-2.25a1.125 1.125 0 00-1.591 0L10.5 4.5M13.5 12l-2.25 2.25a1.125 1.125 0 01-1.591 0L8.25 10.5" /></svg>
                         <h3>Dev Tools</h3>
-                        <p>GitHub, MySQL Workbench</p>
+                        <p>GitHub, MySQL Workbench, VS Code</p>
                     </div>
                 </div>
             </section>
@@ -456,6 +459,7 @@
 
 </body>
 </html>
+
 
 
 
