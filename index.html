@@ -79,7 +79,7 @@
             transition: 0.4s;
         }
 
-        /* --- Hero Section & Particles BG --- */
+        /* --- Hero Section --- */
         #particles-js {
             position: absolute;
             width: 100%;
@@ -88,15 +88,15 @@
         }
         .hero {
             text-align: center;
-            padding: 40px 20px 80px; /* reduced top padding */
-            min-height: 85vh;        /* slightly reduced height */
+            padding: 40px 20px 80px;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* moves content upward */
+            justify-content: flex-start;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 60px; /* extra control for top gap */
+            padding-top: 60px;
         }
 
         .hero-content {
@@ -115,7 +115,6 @@
         .hero h1 {
             font-size: 3.5em;
             margin: 0;
-            color: var(--primary-text);
         }
         .hero .subtitle {
             font-size: 1.5em;
@@ -127,6 +126,7 @@
             font-size: 1.1em;
             color: var(--secondary-text);
         }
+
         .social-links {
             margin-top: 25px;
         }
@@ -142,38 +142,35 @@
             width: 30px;
             height: 30px;
         }
-        /* Paste this inside the <style> block in head (replace existing .btn-download if present) */
+
+        /* ==== RESUME BUTTON (GLASS DESIGN) ==== */
         .btn-download {
             display: inline-block;
             margin-top: 16px;
             padding: 10px 22px;
             border-radius: 10px;
-            border: 1px solid rgba(66,153,225,0.5); /* accent border */
-            background: rgba(255,255,255,0.05); /* light glass */
+            border: 1px solid rgba(66,153,225,0.5);
+            background: rgba(255,255,255,0.05);
             backdrop-filter: blur(4px);
             color: var(--primary-text);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95em;
             box-shadow: 0 0 10px rgba(66,153,225,0.15);
-            transition:
-                background 0.25s ease,
-                box-shadow 0.25s ease,
-                transform 0.2s ease;
+            transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
         }
-        
+
         .btn-download:hover {
             background: rgba(66,153,225,0.15);
             box-shadow: 0 0 18px rgba(66,153,225,0.45);
             transform: translateY(-3px);
         }
-        
+
         .btn-download:active {
             transform: translateY(-1px);
         }
 
-
-        /* --- General Section Styles & Scroll Animation --- */
+        /* --- Sections General --- */
         section {
             padding: 80px 0;
             border-bottom: 1px solid var(--border-color);
@@ -185,24 +182,20 @@
             opacity: 1;
             transform: translateY(0);
         }
-        section:last-of-type {
-            border-bottom: none;
-        }
         h2 {
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 50px;
-            color: var(--primary-text);
         }
         h2::after {
             content: '';
-            display: block;
             width: 60px;
             height: 3px;
             background-color: var(--accent-color);
             margin: 10px auto 0;
+            display: block;
         }
-        
+
         /* --- Skills Section --- */
         .skills-grid {
             display: grid;
@@ -215,141 +208,28 @@
             border-radius: 8px;
             border: 1px solid var(--border-color);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: 0.3s;
         }
         .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        .skill-card svg {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-        }
-        .skill-card h3 {
-            margin-top: 0;
-            color: var(--primary-text);
-            font-size: 1.3em;
-        }
-        .skill-card p {
-            margin-bottom: 0;
-            color: var(--secondary-text);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25);
         }
 
         /* --- Projects Section --- */
         .project-card {
             background-color: var(--card-color);
             border-radius: 8px;
+            display: flex;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: row;
             margin-bottom: 40px;
-            transition: box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-        }
-        .project-card:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        .project-image {
-            flex: 1;
-            min-width: 50%;
-        }
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .project-content {
-            flex: 1;
-            padding: 30px;
-        }
-        .project-content h3 {
-            margin-top: 0;
-            font-size: 1.8em;
-            color: var(--accent-color);
-        }
-        .project-content ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .project-content li {
-            margin-bottom: 10px;
-            color: var(--secondary-text);
-            position: relative;
-            padding-left: 25px;
-        }
-        .project-content li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
         }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: var(--card-color);
-            border-top: 1px solid var(--border-color);
-        }
-        footer p {
-            margin: 10px 0;
-            color: var(--secondary-text);
-        }
-
-        /* --- Responsive Styles --- */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            .hero .subtitle {
-                font-size: 1.2em;
-            }
-            .profile-photo {
-                width: 120px;
-                height: 120px;
-            }
-            h2 {
-                font-size: 2em;
-            }
-            
-            nav {
-                justify-content: flex-end;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 65px;
-                left: 0;
-                background-color: var(--card-color);
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links li {
-                padding: 15px 0;
-                text-align: center;
-                border-top: 1px solid var(--border-color);
-            }
-            .menu-icon {
-                display: block;
-            }
-
-            .project-card, .project-card:nth-child(even) {
-                flex-direction: column;
-            }
-        }
     </style>
 </head>
+
 <body>
-    
+
     <nav>
         <div class="menu-icon" id="menu-icon">
             <div class="bar"></div>
@@ -366,141 +246,110 @@
     </nav>
 
     <main>
+
         <div class="hero" id="home">
             <div id="particles-js"></div>
+
             <div class="hero-content">
-                <!-- IMPORTANT: Make sure you have a 'profile.jpg' file in your GitHub repository for this to work -->
-                <img src="Gemini_Generated_Image_vh5g9mvh5g9mvh5g.png
-" alt="Profile Photo of Eega Saketh Reddy" class="profile-photo" onerror="this.onerror=null;this.src='https://placehold.co/150x150/2d3748/e2e8f0?text=ESR';">
+
+                <img src="Gemini_Generated_Image_vh5g9mvh5g9mvh5g.png" 
+                     alt="Profile Photo" 
+                     class="profile-photo"
+                     onerror="this.src='https://placehold.co/150x150/2d3748/e2e8f0?text=ESR';">
+
                 <h1>EEGA SAKETH REDDY</h1>
                 <p class="subtitle">Building Web Experiences with Code</p>
+
                 <p>Passionate developer skilled in Python, JavaScript, and modern web technologies. Strong foundation in software engineering with hands-on experience in full-stack development.</p>
-               <div class="social-links">
-                 <a href="https://linkedin.com/in/eegasakethreddy" target="_blank" aria-label="LinkedIn">
-        <!-- LinkedIn SVG -->
-                </a>
-                <a href="https://github.com/eegasakethreddy" target="_blank" aria-label="GitHub">
-        <!-- GitHub SVG -->
-                </a>
+
+                <!-- ICONS -->
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/eegasakethreddy" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M20.5 2h-17A1.5..."/></svg>
+                    </a>
+                    <a href="https://github.com/eegasakethreddy" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M12 2C6.4..."/></svg>
+                    </a>
                 </div>
 
+                <!-- RESUME BUTTON BELOW ICONS -->
                 <a class="btn-download"
                    href="resume.pdf"
                    target="_blank"
-                   rel="noopener"
-                   aria-label="View resume">
+                   rel="noopener">
                     📄 View Resume
                 </a>
 
-
-
-                
             </div>
         </div>
 
+        <!-- ABOUT -->
         <div class="container">
             <section id="about">
                 <h2>ABOUT ME</h2>
-                <p id="bio-text" style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--secondary-text);">I am a Computer Science graduate with strong skills in Python, JavaScript, and modern web development. I have built full-stack applications using React, FastAPI, and RESTful APIs, focusing on clean UI design, performance, and scalable backend logic. My projects—ranging from weather applications to dictionary platforms—demonstrate my ability to integrate APIs, structure data effectively, and deliver responsive, user-friendly interfaces. I am passionate about creating real-world software solutions and continuously improving my development skills.</p>
+                <p style="text-align:center; max-width:700px; margin:0 auto; color:var(--secondary-text);">
+                    I am a Computer Science graduate with strong skills in Python, JavaScript, and modern web development.
+                    I build responsive, API-driven applications using React, FastAPI, and SQL, with a strong focus on clean UI,
+                    performance, and scalable backend logic. I enjoy solving real-world problems through simple,
+                    user-friendly software.
+                </p>
             </section>
 
+            <!-- SKILLS -->
             <section id="skills">
                 <h2>TECHNICAL SKILLS</h2>
+
                 <div class="skills-grid">
-                    <div class="skill-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L12 15.25l5.571-3M3.75 12h16.5" /></svg>
-                        <h3>Languages</h3>
-                        <p>Python, JavaScript</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
-                        <h3>Web Tech</h3>
-                        <p>HTML, CSS, React.js</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg>
-                        <h3>Databases</h3>
-                        <p>SQL (MySQL)</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12m-7.5-3.75v3.75m-3.75-3.75v3.75m-3.75-3.75v3.75m9.75-15l-2.25-2.25a1.125 1.125 0 00-1.591 0L10.5 4.5M13.5 12l-2.25 2.25a1.125 1.125 0 01-1.591 0L8.25 10.5" /></svg>
-                        <h3>Dev Tools</h3>
-                        <p>GitHub, MySQL Workbench, VS Code</p>
-                    </div>
+                    <div class="skill-card"><h3>Languages</h3><p>Python, JavaScript</p></div>
+                    <div class="skill-card"><h3>Web Tech</h3><p>HTML, CSS, React.js</p></div>
+                    <div class="skill-card"><h3>Databases</h3><p>SQL (MySQL)</p></div>
+                    <div class="skill-card"><h3>Dev Tools</h3><p>GitHub, VS Code, MySQL Workbench</p></div>
                 </div>
             </section>
 
+            <!-- PROJECTS -->
             <section id="projects">
                 <h2>PERSONAL PROJECTS</h2>
+
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="dictionary-demo.gif" alt="Dictionary App Demo" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/e2e8f0?text=Dictionary+App';">
-                    </div>
-                    <div class="project-content">
-                        <h3>Word Means | Dictionary App</h3>
+                    <img src="dictionary-demo.gif" alt="Dictionary App Demo">
+                    <div>
+                        <h3>Dictionary App</h3>
                         <ul>
-                            <li>Engineered a responsive dictionary web app with HTML, CSS, and JavaScript.</li>
-                            <li>Integrated the public DictionaryAPI to dynamically fetch and display linguistic data.</li>
-                            <li>Designed a mobile-first, fully responsive UI using Tailwind CSS for optimal usability.</li>
-                            <li>Automated the build and deployment process to GitHub Pages with GitHub Actions.</li>
+                            <li>Responsive dictionary app using JavaScript & DictionaryAPI</li>
+                            <li>Clean UI + Tailwind CSS</li>
+                            <li>Deployed with GitHub Pages</li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="clock-demo.gif" alt="Analog Clock Demo" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/e2e8f0?text=Analog+Clock';">
-                    </div>
-                    <div class="project-content">
-                        <h3>Analog Clock | Dynamic Interface</h3>
+                    <img src="clock-demo.gif" alt="Analog Clock">
+                    <div>
+                        <h3>Analog Clock</h3>
                         <ul>
-                            <li>Developed a real-time analog clock demonstrating core front-end principles.</li>
-                            <li>Implemented precise time-based animations using JavaScript's `setInterval` and `Date` objects.</li>
-                            <li>Manipulated the DOM to apply CSS transforms for smooth, accurate second-by-second updates.</li>
+                            <li>Real-time analog clock using JS</li>
+                            <li>Smooth second-hand animations</li>
                         </ul>
                     </div>
                 </div>
+
             </section>
+
         </div>
+
     </main>
 
+    <!-- FOOTER -->
     <footer id="contact">
-        <div class="container">
-            <h2>GET IN TOUCH</h2>
-            <p>Feel free to reach out for collaborations or just a friendly hello!</p>
-            <p><a href="mailto:eegasakethreddy@gmail.com" style="color: var(--accent-color); text-decoration: none;">eegasakethreddy@gmail.com</a></p>
-            <br>
-            <p>&copy; 2025 Eega Saketh Reddy. All rights reserved.</p>
-        </div>
+        <p>Contact: <a href="mailto:eegasakethreddy@gmail.com">eegasakethreddy@gmail.com</a></p>
+        <p>&copy; 2025 Eega Saketh Reddy</p>
     </footer>
-
-    <!-- Scripts for animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // --- Particles.js Config ---
-        particlesJS("particles-js", {
-            "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": false }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "out_mode": "out" } },
-            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } }, "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } } },
-            "retina_detect": true
-        });
-
-        // --- Mobile Nav Toggle ---
-        const menuIcon = document.getElementById('menu-icon');
-        const navLinks = document.getElementById('nav-links');
-        menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-        // --- Scroll Fade-in Animation ---
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
-
-    </script>
 
 </body>
 </html>
+
+
 
 
 
