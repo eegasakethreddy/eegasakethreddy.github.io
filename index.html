@@ -289,6 +289,56 @@
             color: var(--accent-color);
             font-weight: bold;
         }
+        /* Buttons in project cards */
+        .project-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        /* Main button (Live Demo) - Accent Blue */
+        .btn {
+            background: rgba(66, 153, 225, 0.15);
+            color: var(--primary-text);
+            border: 1px solid rgba(66,153,225,0.4);
+            padding: 9px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 
+                background 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.2s ease;
+        }
+        
+        .btn:hover {
+            background: rgba(66,153,225,0.25);
+            box-shadow: 0 0 14px rgba(66,153,225,0.35);
+            transform: translateY(-3px);
+        }
+        
+        /* Secondary button (Source Code) - Glass Ghost */
+        .btn-ghost {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--secondary-text);
+            padding: 9px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 
+                background 0.25s ease,
+                border 0.25s ease,
+                transform 0.2s ease;
+        }
+        
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(66,153,225,0.4);
+            color: var(--primary-text);
+            transform: translateY(-3px);
+        }
+
 
         /* --- Footer --- */
         footer {
@@ -548,6 +598,7 @@
 
 </body>
 </html>
+
 
 
 
