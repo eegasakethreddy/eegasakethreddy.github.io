@@ -142,6 +142,36 @@
             width: 30px;
             height: 30px;
         }
+        /* Paste this inside the <style> block in head (replace existing .btn-download if present) */
+        .btn-download {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 10px 22px;
+            border-radius: 10px;
+            border: 1px solid rgba(66,153,225,0.5); /* accent border */
+            background: rgba(255,255,255,0.05); /* light glass */
+            backdrop-filter: blur(4px);
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            box-shadow: 0 0 10px rgba(66,153,225,0.15);
+            transition:
+                background 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.2s ease;
+        }
+        
+        .btn-download:hover {
+            background: rgba(66,153,225,0.15);
+            box-shadow: 0 0 18px rgba(66,153,225,0.45);
+            transform: translateY(-3px);
+        }
+        
+        .btn-download:active {
+            transform: translateY(-1px);
+        }
+
 
         /* --- General Section Styles & Scroll Animation --- */
         section {
@@ -469,6 +499,7 @@
 
 </body>
 </html>
+
 
 
 
